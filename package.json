@@ -1,0 +1,34 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "project in dev",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/violent1401/projects.git"
+  },
+  "keywords": [
+    "project"
+  ],
+  "author": "Maksim Dzhoga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/violent1401/projects/issues"
+  },
+  "homepage": "https://github.com/violent1401/projects#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.2.0",
+    "gulp-uncss": "^1.0.6",
+    "postcss-cssnext": "^2.9.0",
+    "precss": "^1.4.0"
+  },
+  "dependencies": {
+    "gulp-util": "^3.0.8"
+  }
+}
