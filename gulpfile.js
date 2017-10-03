@@ -22,7 +22,7 @@ gulp.task('browserSync', function() {
 // ///////////////////////////////////////////////
 var paths = {
   html:['*.php'],
-  css:['./src/*.css'],
+  css:['./src/style.css'],
   script:['./assets/js/*.js']
 };
 
