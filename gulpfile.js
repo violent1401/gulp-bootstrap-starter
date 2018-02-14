@@ -3,20 +3,17 @@ var postcss   	 = require('gulp-postcss');
 var cssnext      = require('postcss-cssnext');
 var plumber      = require('gulp-plumber');
 var precss       = require('precss');
-var imagemin     = require('gulp-imagemin');
-var criticalCss  = require('gulp-penthouse');
-var inject       = require('gulp-inject-string');
 var gutil        = require('gulp-util');
 var browserSync  = require('browser-sync');
 var reload       = browserSync.reload;
 
-var siteUrl = 'foundation';
+
 // ////////////////////////////////////////////////
 // Browser-Sync
 // // /////////////////////////////////////////////
 gulp.task('browserSync', function() {
   browserSync({
-    proxy: siteUrl
+    proxy: "gulp-bootstrap-starter"
   });
 });
 
@@ -65,27 +62,6 @@ gulp.task('scripts', function(){
     .pipe(reload({stream:true}));
 });
 
-gulp.task('critical-css', function () {
-  return gulp.src('./src/style.css')
-  .pipe(criticalCss({
-  out: process.argv[4], // output file name
-  url: 'http://'+siteUrl+'/'+process.argv[4], // url from where we want penthouse to extract critical styles
-  width: 1920, // max window width for critical media queries
-  height: 1080, // max window height for critical media queries
-  userAgent: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)' // pretend to be googlebot when grabbing critical page styles.
-  }))
-  .pipe(gulp.dest('./src/')); // destination folder for the output file
-});
-
-gulp.task('img', function() { 
-  gulp.src('./assets/img/*.{png,jpg,gif}') 
-    .pipe(imagemin({ 
-      optimizationLevel: 7, 
-      progressive: true 
-    })) 
-    .pipe(gulp.dest('./assets/img')) 
-});
-
 
 gulp.task('watcher',function(){
   gulp.watch(paths.css, ['css']);
@@ -93,4 +69,4 @@ gulp.task('watcher',function(){
   gulp.watch(paths.html, ['html']);
 });
 
-gulp.task('default', ['watcher', 'img', 'browserSync']);
+gulp.task('default', ['watcher', 'browserSync']);
